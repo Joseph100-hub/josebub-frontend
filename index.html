@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Josebub — Watch. Earn. See the math.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand"><span class="coin">◐</span> Josebub</div>
+    <div class="wallet-pill"><span id="balance">KES 0.00</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Watch. Earn. See the math.</p>
+    <h1>Every shilling you earn here comes from a real advert, not the next person's deposit.</h1>
+    <p class="hero-sub">Josebub pays you a fixed share of what advertisers actually pay us per view. No sign-up fees. No "upgrade to unlock." No withdrawal traps. Just the ledger below, every time.</p>
+
+    <div class="ledger-card">
+      <p class="ledger-title">What one view is actually worth</p>
+      <div class="ledger-row"><span>Advertiser pays Josebub</span><span class="mono" id="ledger-network">KES 0.60</span></div>
+      <div class="ledger-row highlight"><span id="ledger-share-label">Your share (50%)</span><span class="mono" id="ledger-user">KES 0.30</span></div>
+      <div class="ledger-row"><span>Josebub keeps (running the platform)</span><span class="mono" id="ledger-margin">KES 0.30</span></div>
+    </div>
+  </section>
+
+  <section class="signup-section" id="signup-section">
+    <h2>Get started</h2>
+    <p class="section-sub">Enter your phone number to create your Josebub wallet.</p>
+    <form id="signup-form" class="signup-form">
+      <input type="tel" id="phone" placeholder="e.g. 254712345678" required />
+      <button type="submit">Create wallet</button>
+    </form>
+    <p id="signup-msg" class="msg"></p>
+  </section>
+
+  <section class="watch-section hidden" id="watch-section">
+    <h2>Try it</h2>
+    <p class="section-sub">Watch a demo ad to earn — a live app embeds a real rewarded-ad SDK here.</p>
+
+    <div class="watch-grid">
+      <div class="video-card">
+        <div class="video-frame" id="video-frame">
+          <button id="watch-btn" class="watch-btn">
+            <span class="play-icon">▶</span>
+            <span id="watch-label">Watch to earn KES 0.30</span>
+          </button>
+          <div id="countdown" class="countdown hidden"></div>
+        </div>
+        <div class="video-meta">
+          <div>
+            <p class="video-title" id="video-title">Nairobi street food tour</p>
+            <p class="video-brand" id="video-brand">Ad · Zuri Foods</p>
+          </div>
+          <span class="mono earn-amount" id="earn-amount">+0.30</span>
+        </div>
+      </div>
+
+      <div class="ledger-log-card">
+        <p class="ledger-title">Your earnings log</p>
+        <ul id="activity-list" class="activity-list">
+          <li class="empty-state">Nothing yet — watch a video to start your log.</li>
+        </ul>
+        <button id="withdraw-btn" class="withdraw-btn">↓ Withdraw to M-Pesa</button>
+        <p class="min-note">Minimum withdrawal: <span id="min-withdraw">KES 50</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <h2>How the money actually moves</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <h3>You watch, we verify</h3>
+        <p>Our server confirms with the ad network that a view genuinely completed — not just that a timer ran out on your phone.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <h3>Revenue splits instantly</h3>
+        <p>Your share is credited to your wallet the moment we're paid. The split is fixed and shown to you every time.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <h3>You cash out, we don't gate it</h3>
+        <p>Once you hit the minimum, withdrawals go out from ad revenue we've already collected — never from newer users' balances.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-section">
+    <h2>Why this isn't the app your friend showed you</h2>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <p class="bad">✕ Balance grows fast, withdrawal always needs one more step</p>
+        <p class="good">✓ Any balance above the minimum withdraws immediately, no conditions added later</p>
+      </div>
+      <div class="compare-card">
+        <p class="bad">✕ Payout per video is a round, generous-looking number</p>
+        <p class="good">✓ Payout is a literal percentage of what an advertiser paid, shown as math</p>
+      </div>
+      <div class="compare-card">
+        <p class="bad">✕ Needs you to deposit or refer people to "activate"</p>
+        <p class="good">✓ Free to join, free to earn, nothing to unlock</p>
+      </div>
+      <div class="compare-card">
+        <p class="bad">✕ Runs on new users' money paying old users</p>
+        <p class="good">✓ Runs on ad revenue only — capped by what advertisers actually pay in</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Josebub · production requires a real ad-network integration and server-side verification.</div>
+</footer>
+
+<div id="withdraw-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <h3>Withdraw to M-Pesa</h3>
+    <p class="modal-balance">Current balance: <span class="mono" id="modal-balance">KES 0.00</span></p>
+    <p id="modal-msg" class="msg"></p>
+    <div class="modal-actions">
+      <button id="modal-confirm">Confirm withdrawal</button>
+      <button id="modal-close" class="secondary">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
