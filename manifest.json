@@ -1,0 +1,14 @@
+{
+  "name": "Josebub — Watch. Earn. See the math.",
+  "short_name": "Josebub",
+  "description": "Earn a transparent share of real ad revenue for watching videos, cashed out to M-Pesa.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#141833",
+  "theme_color": "#141833",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
